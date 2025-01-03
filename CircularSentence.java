@@ -22,7 +22,7 @@ class Solution {
 
 public class CircularSentence {
     public static void main(String[] args) {
-        Solution solution = new Solution()
+        Solution solution = new Solution();
         
         // Test cases
         String sentence1 = "hello orange eagle";
