@@ -1,4 +1,4 @@
-public class Solution {
+public class Solution34 {
     public boolean isHappy(int n) {
         int num = n;
         while(n>9){
@@ -18,7 +18,7 @@ public class Solution {
 }
 
 public static void main(String[] args) {
-    Solution solution = new Solution();
+    Solution34 solution = new Solution34();
     
     // Test case 1: 19 is a happy number
     System.out.println("Is 19 a happy number? " + solution.isHappy(19));  // Output: true
