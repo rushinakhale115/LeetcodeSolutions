@@ -4,7 +4,7 @@ class Solution {
             if (nums[i] > nums[i + 1])
                 return false;
         }
-        return true;
+        return true
     }
 
     public boolean canSortArray(int[] nums) {
