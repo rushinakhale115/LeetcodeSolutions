@@ -1,4 +1,4 @@
-public class Checkifwordoccursasprefix {
+public class Checkifwordoccursasprefix 
 
         public static void main(String[] args) {
             Solution15 solution = new Solution15();
