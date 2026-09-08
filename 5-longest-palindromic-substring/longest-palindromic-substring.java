@@ -1,49 +1,40 @@
 class Solution {
     public String longestPalindrome(String s) {
-        if (s.length() == 0) {
+        int n=s.length();
+        if(n==0){
             return "";
         }
+        String ans ="";
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("^"); // Starting sentinel
-        for (int i = 0; i < s.length(); i++) {
-            sb.append("#");
-            sb.append(s.charAt(i));
-        }
-        sb.append("#$"); // Ending sentinel
-
-        char[] sChars = sb.toString().toCharArray();
-        int[] p = new int[sChars.length];
-        int center = 0, right = 0;
-
-        int maxLen = 0;
-        int centerIndex = 0;
-
-        for (int i = 1; i < sChars.length - 1; i++) {
-            int mirror = 2 * center - i;
-
-            if (i < right) {
-                p[i] = Math.min(right - i, p[mirror]);
+        //for odd length Palindrome
+        for(int i=0;i<n;i++){
+            int start=i,end=i;
+            while(start>=0 && end<n && s.charAt(start)==s.charAt(end)){
+                String current=s.substring(start,end+1);
+                if(current.length()>ans.length()){
+                    ans=current;
+                }
+                start--;
+                end++;
             }
-
             
-            while (sChars[i + (1 + p[i])] == sChars[i - (1 + p[i])]) {
-                p[i]++;
-            }
-
-         
-            if (i + p[i] > right) {
-                center = i;
-                right = i + p[i];
-            }
-
-            if (p[i] > maxLen) {
-                maxLen = p[i];
-                centerIndex = i;
-            }
         }
 
-        int start = (centerIndex - maxLen) / 2;
-        return s.substring(start, start + maxLen);
+        //for even length Pallindrome
+        
+        for(int i=0;i<n-1;i++){
+            int start2=i;
+            int end2=i+1;
+            while(start2>=0 && end2<n && s.charAt(start2)==s.charAt(end2)){
+                String current=s.substring(start2,end2+1);
+                if(current.length()>ans.length()){
+                    ans=current;
+                }
+                start2--;
+                end2++;
+            }
+            
+        }
+        return ans;
     }
 }
